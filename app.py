@@ -87,7 +87,7 @@ def login_page(connection):
 
     st.form_submit_button(label='Sign In', on_click=login, args=(connection, ))
 
-def pca_scatterplot_page():
+def kmeans_scatterplot_page():
   features = np.load('features.npy')
 
   n_clusters = 2
@@ -167,7 +167,7 @@ def main():
     diagnosis_page(model)
   
   else:
-    dashboard_page = st.sidebar.selectbox('Choose a page', ['Upload Image', 'View Images', 'PCA Scatterplot'])
+    dashboard_page = st.sidebar.selectbox('Choose a page', ['Upload Image', 'View Images', 'Kmeans Scatterplot'])
 
     if dashboard_page == 'Upload Image':
       upload_image_page()
@@ -175,8 +175,8 @@ def main():
     elif dashboard_page == 'View Images':
       view_images_page()
     
-    elif dashboard_page == 'PCA Scatterplot':
-      pca_scatterplot_page()
+    elif dashboard_page == 'Kmeans Scatterplot':
+      kmeans_scatterplot_page()
   
 if __name__ == '__main__':
   main()
